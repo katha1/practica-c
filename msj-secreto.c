@@ -15,4 +15,6 @@ int main() {
 	for (size_t i = 0; i < length; i++) {
 		printf("%c", decoded[i]);
 	}
+	
+	printf("\n");
 }
