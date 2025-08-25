@@ -15,8 +15,8 @@ int main() {
 	printf("~a: %d\n", ~a);
 	printf("a && b: %x\n", a && b);
 	printf("a || b: %x\n", a || b);
-	printf("a << 1: %x\n",a << 1);
-	printf("a >> 1: %x\n", a >> 1);
+	printf("a << 1: %d\n",a << 1);
+	printf("a >> 1: %d\n", a >> 1);
 
 	return 0;
 }
