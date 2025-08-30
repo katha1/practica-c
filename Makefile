@@ -1,9 +1,12 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -g
-TARGET = ej4 hola msj-secreto 
+CFLAGS = -Wall -Wextra -pedantic -g -MMD -MP
+TARGET = binario 
 
 all: $(TARGET)
 	echo "Compilacion exitosa"
+
+SRCS = hola.c ej4.c 
+OBJS = $(SRCS:.c = .o)
 
 $(TARGETS): %: %.o
 	$(CC) $(CFLAGS) $< -o $@
