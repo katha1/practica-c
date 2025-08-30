@@ -1,35 +1,18 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic
+CFLAGS = -Wall -Wextra -pedantic -g
+TARGET = ej4 hola msj-secreto 
 
-all: hola tamaño-datos msj-secreto operacionesMat
+all: $(TARGET)
+	echo "Compilacion exitosa"
 
-hola: hola.o
-	$(CC) $(CFLAGS) hola.o -o hola
+$(TARGETS): %: %.o
+	$(CC) $(CFLAGS) $< -o $@
 
-tamaño-datos: tamaño-datos.o
-	$(CC) $(CFLAGS) tamaño-datos.o -o tamaño-datos
-
-msj-secreto: msj-secreto.o
-	$(CC) $(CFLAGS) msj-secreto.o -o msj-secreto
-
-operacionesMat: operacionesMat.o
-	$(CC) $(CFLAGS) operacionesMat.o -o operacionesMat
-
-
-hola.o: hola.c
-	$(CC) $(CFLAGS) -c hola.c -o hola.o
-
-tamaño-datos.o: tamaño-datos.c
-	$(CC) $(CFLAGS) -c tamaño-datos.c -o tamaño-datos.o
-
-msj-secreto.o: msj-secreto.c
-	$(CC) $(CFLAGS) -c msj-secreto.c -o msj-secreto.o
-
-operacionesMat.o: operacionesMat.c
-	$(CC) $(CFLAGS) -c operacionesMat.c -o operacionesMat.o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm *.o hola tamaño-datos msj-secreto operacionesMat
+	rm *.o $(TARGET)
 
 
 .PHONY: all clean
